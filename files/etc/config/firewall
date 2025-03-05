@@ -1,10 +1,9 @@
 
 config defaults
-	option syn_flood '1'
 	option input 'ACCEPT'
 	option output 'ACCEPT'
-	option forward 'REJECT'
-	option fullcone '1'
+	option synflood_protect '1'
+	option forward 'ACCEPT'
 
 config zone
 	option name 'lan'
@@ -17,11 +16,11 @@ config zone
 	option name 'wan'
 	list network 'wan'
 	list network 'wan6'
-	option input 'REJECT'
 	option output 'ACCEPT'
-	option forward 'REJECT'
 	option masq '1'
 	option mtu_fix '1'
+	option input 'ACCEPT'
+	option forward 'ACCEPT'
 
 config forwarding
 	option src 'lan'
@@ -131,12 +130,6 @@ config rule
 
 config include
 	option path '/etc/firewall.user'
-
-config include 'miniupnpd'
-	option type 'script'
-	option path '/usr/share/miniupnpd/firewall.include'
-	option family 'any'
-	option reload '1'
 
 config include 'luci_app_pptp_server'
 	option type 'script'

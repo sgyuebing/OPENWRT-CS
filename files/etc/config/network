@@ -7,7 +7,7 @@ config interface 'loopback'
 
 config globals 'globals'
 	option packet_steering '1'
-	option ula_prefix 'fd94:ef07:9c66::/48'
+	option ula_prefix 'fd11:42de:817a::/48'
 
 config device
 	option name 'br-lan'
